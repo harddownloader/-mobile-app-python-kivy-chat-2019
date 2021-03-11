@@ -1,0 +1,44 @@
+<Status>:
+    GridLayout:
+        rows: 2
+        MDToolbar:
+            id: toolbar
+            title: "New status"
+            md_bg_color: app.theme_cls.primary_color
+            background_palette: 'Primary'
+            background_hue: '500'
+            elevation: 10
+            left_action_items: [['arrow-left', lambda x: root.on_back_pressed()]]
+
+        GridLayout:
+            rows: 2
+            orientation: 'vertical'
+            padding: dp(15)#[10,50,10,50]
+            GridLayout:
+                cols:1
+
+                AsyncImage:
+                    id: pic_day
+                    source: "img/cam_stat.png"
+                    halign: "center"
+            GridLayout:
+                rows:2
+                cols:1
+                orientation: "vertical"
+                MDTextField:
+                    id: txt_input
+                    multiline: False
+                    hint_text: "Caption (optional)"
+                    write_tab: False
+                BoxLayout:
+                    Widget:
+                    MDRaisedButton:
+                        text: "Select status picture"
+                        on_release:
+                            root.select_pic()
+                    Widget:
+                    MDRaisedButton:
+                        id: send_status
+                        text: "Set new picture"
+                        on_release: root.upload_status(pic_day.source, txt_input.text)
+                    Widget:

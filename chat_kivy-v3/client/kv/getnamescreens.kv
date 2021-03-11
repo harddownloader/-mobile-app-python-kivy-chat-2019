@@ -1,0 +1,85 @@
+<GetNamesForFindFriendsScreen>:
+    GridLayout:
+        cols: 1
+        rows: 2
+        MDRaisedButton:
+            text: "reload"
+            on_release: root.refresh_screen()
+        ScrollView:
+            do_scroll_x: False
+            MDList:
+                id: ldml
+
+<GetNamesForFriendRequestsScreen>:
+
+    GridLayout:
+        cols: 1
+        rows: 3
+        MDToolbar:
+            id: toolbar
+            title: "Tinkle"
+            md_bg_color: app.theme_cls.primary_color
+            background_palette: 'Primary'
+            background_hue: '500'
+            elevation: 10
+            left_action_items:
+                [['arrow-left', lambda x: app.change_screen("Chat")]]
+        MDRaisedButton:
+            text: "reload"
+            on_release: root.refresh_screen()
+        ScrollView:
+            do_scroll_x: False
+            MDList:
+                id: ldml
+
+<GetNamesForCurrentFriendsScreen>:
+    GridLayout:
+        cols: 1
+        rows: 2
+        MDRaisedButton:
+            text: "reload"
+        ScrollView:
+            do_scroll_x: False
+            MDList:
+                id: ldml
+
+<GetNamesForStatusScreen>:
+    GridLayout:
+        rows:2
+
+        MDToolbar:
+            id: toolbar
+            title: "Status"
+            md_bg_color: app.theme_cls.primary_color
+            background_palette: 'Primary'
+            background_hue: '500'
+            elevation: 10
+            left_action_items: [['arrow-left', lambda x: root.on_back_pressed()]]
+        GridLayout:
+            cols: 1
+            rows: 0
+            
+            ScrollView:
+                do_scroll_x: False
+                MDList:
+                    id: ldml
+
+<GetFriendsAddGroup>:
+    GridLayout:
+        rows:2
+
+        MDToolbar:
+            id: toolbar
+            title: "Add friend to group"
+            md_bg_color: app.theme_cls.primary_color
+            background_palette: 'Primary'
+            background_hue: '500'
+            elevation: 10
+            left_action_items: [['arrow-left', lambda x: root.on_back_pressed()]]
+        GridLayout:
+            cols: 1
+            rows: 0
+            ScrollView:
+                do_scroll_x: False
+                MDList:
+                    id: ldml
